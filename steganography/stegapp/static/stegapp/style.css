@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-image: url('steg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Center the entire section */
+    gap: 20px; /* Space between the boxes */
+}
+
+.encrypt-section, .decrypt-section {
+    flex: 1; /* Both sections will take equal space */
+    max-width: 500px; /* Set max-width to limit how large they can grow */
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: left;
+    color: white;
+}
+
+textarea, input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#decryptedText {
+    word-break: break-word;
+    margin-top: 20px;
+}

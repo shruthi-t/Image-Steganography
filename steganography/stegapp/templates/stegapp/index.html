@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Steganography</title>
+    <!-- Load static files -->
+    <link rel="stylesheet" href="{% static 'stegapp/style.css' %}">
+</head>
+<body>
+    <h1>Image Steganography</h1>
+    <div class="container">
+        <div class="encrypt-section">
+            <h2>Encrypt Text into Image</h2>
+            <!-- Encrypt form with Django CSRF token -->
+            <!-- Encrypt form with Django CSRF token -->
+    <form id="encryptForm" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" id="encryptImageInput" accept="image/*" required>
+        <textarea name="text" id="encryptText" placeholder="Enter text to encrypt" required></textarea>
+        <button type="button" onclick="encryptText()">Encrypt and Download</button>
+    </form>
+
+            <canvas id="encryptCanvas" style="display:none;"></canvas>
+        </div>
+
+        <div class="decrypt-section">
+            <h2>Decrypt Text from Image</h2>
+            <!-- Decrypt section -->
+            <form id="decryptForm" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" id="decryptImageInput" accept="image/*" required>          
+                <input type="number" id="decryptTextLength" placeholder="Text length" required>
+                <button type="button" onclick="decryptText()">Decrypt</button>
+            </form>
+            <textarea id="decryptedTextBox" placeholder="Decrypted text will appear here" readonly></textarea>
+        </div>
+    </div>
+
+    <!-- Load JavaScript file -->
+    <script src="{% static 'stegapp/script.js' %}"></script>
+</body>
+</html>
